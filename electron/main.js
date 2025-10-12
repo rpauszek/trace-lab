@@ -77,7 +77,7 @@ app.whenReady().then(() => {
 
 app.on("window-all-closed", () => {
   if (backendProcess) backendProcess.kill("SIGINT");
-  if (process.platform !== "darwin") app.quit();
+  app.quit(); // quit on all platforms
 });
 
 app.on("activate", () => {
