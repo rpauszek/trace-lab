@@ -1,18 +1,15 @@
-[project]
-name = "backend"
+[tool.poetry]
+name = "trace-lab-backend"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "Ray Pauszek",email = "ray.pauszek@gmail.com"}
-]
-readme = "README.md"
-requires-python = "^3.13"
-dependencies = [
-    "flask (>=3.1.2,<4.0.0)",
-    "flask-cors (>=6.0.1,<7.0.0)"
-]
+description = "Flask backend for trace-lab electron app"
+authors = ["Ray Pauszek <ray.pauszek@gmail.com>"]
+packages = [{ include = "tracelab" }]
 
+[tool.poetry.dependencies]
+python = "^3.13"
+flask = "^3.0.3"
+numpy = "^2.1.0"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
