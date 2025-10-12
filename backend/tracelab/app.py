@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request
 import numpy as np
+import sys
+import os
 
 app = Flask(__name__)
 
@@ -18,4 +20,14 @@ def sine_wave():
         return jsonify({"error": str(e)}), 400
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    is_frozen = getattr(sys, "frozen", False)
+    port = int(os.environ.get("FLASK_PORT", 5000))
+
+    if is_frozen:
+        # Production: use Waitress
+        from waitress import serve
+        serve(app, host="127.0.0.1", port=port)
+    else:
+        # Development: use Flask server with reloader disabled
+        app.run(port=port, debug=True, use_reloader=False)
+

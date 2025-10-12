@@ -6,9 +6,13 @@ authors = ["Ray Pauszek <ray.pauszek@gmail.com>"]
 packages = [{ include = "tracelab" }]
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = ">=3.13,<3.15"  # due to pyinstaller
 flask = "^3.0.3"
 numpy = "^2.1.0"
+waitress = "^3.0.2"
+
+[tool.poetry.group.dev.dependencies]
+pyinstaller = "^6.16.0"
 
 [build-system]
 requires = ["poetry-core"]
