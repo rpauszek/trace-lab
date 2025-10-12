@@ -1,0 +1,92 @@
+/* =======================
+   Dark Theme Variables
+======================= */
+:root {
+  /* Backgrounds */
+  --bg-primary: #222222;
+  --bg-secondary: #1E1E1E;
+  --bg-tertiary: #2C2C2C;
+
+  /* Text */
+  --text-primary: #E0E0E0;
+  --text-secondary: #A0A0A0;
+  --text-accent: #BB86FC;
+
+  /* UI / Borders */
+  --border: #333333;
+  --input-bg: #1E1E1E;
+  --input-text: #E0E0E0;
+  --button-bg: #2C2C2C;
+  --button-hover: #3C3C3C;
+
+  /* Plotting */
+  --plot-line: #03DAC6;
+  --plot-circle: #FF0266;
+  --plot-grid: #b51010;
+  --plot-axis: #AAAAAA;
+}
+
+/* =======================
+   Global Styles
+======================= */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-primary);
+}
+
+input, select, textarea {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--border);
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+/* =======================
+   D3 Plot Styling (via classes)
+======================= */
+.plot-line {
+  fill: none;
+  stroke: var(--plot-line);
+  stroke-width: 2px;
+}
+
+.plot-circle {
+  fill: var(--plot-circle);
+}
+
+.plot-grid {
+  stroke: var(--plot-grid);
+  stroke-width: 0.5px;
+  stroke-dasharray: 2 2;
+}
+
+.plot-axis path,
+.plot-axis line {
+  stroke: var(--plot-axis);
+}
+
+.plot-axis text {
+  fill: var(--plot-axis);
+  font-size: 12px;
+}
