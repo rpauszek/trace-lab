@@ -7,6 +7,12 @@ BACKEND_DIR="$SCRIPT_DIR/../../backend"
 RENDERER_DIR="$SCRIPT_DIR/../../renderer"
 ELECTRON_DIR="$SCRIPT_DIR/.."
 
+WORKBENCH_MODE=false
+if [[ "$1" == "--workbench" ]]; then
+  WORKBENCH_MODE=true
+  echo "🧪 Launching Workbench Mode (no backend)..."
+fi
+
 echo "📦 Backend dir: $BACKEND_DIR"
 echo "📦 Renderer dir: $RENDERER_DIR"
 echo "📦 Electron dir: $ELECTRON_DIR"
@@ -46,4 +52,8 @@ npx wait-on http://localhost:$VITE_PORT/index.html
 
 # --- Start Electron ---
 cd "$ELECTRON_DIR"
-cross-env NODE_ENV=development electron .
+if [ "$WORKBENCH_MODE" = true ]; then
+  cross-env NODE_ENV=development electron . --workbench
+else
+  cross-env NODE_ENV=development electron .
+fi

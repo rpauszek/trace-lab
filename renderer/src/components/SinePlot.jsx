@@ -63,14 +63,14 @@ export default function SinePlot({ data }) {
             .attr("class", "plot-line")
             .attr("d", line);
 
-        // Circles
-        svg.selectAll("circle")
-            .data(data.y)
-            .join("circle")
-            .attr("class", "plot-circle")
-            .attr("cx", (d, i) => xScale(data.x[i]))
-            .attr("cy", (d) => yScale(d))
-            .attr("r", 2);
+        // // Circles
+        // svg.selectAll("circle")
+        //     .data(data.y)
+        //     .join("circle")
+        //     .attr("class", "plot-circle")
+        //     .attr("cx", (d, i) => xScale(data.x[i]))
+        //     .attr("cy", (d) => yScale(d))
+        //     .attr("r", 5);
 
     }, [data]);
 

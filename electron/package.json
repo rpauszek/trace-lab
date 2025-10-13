@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "./scripts/dev.sh",
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "workbench": "./scripts/dev.sh --workbench"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

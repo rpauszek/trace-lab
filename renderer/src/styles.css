@@ -1,29 +1,29 @@
 /* =======================
-   Dark Theme Variables
+   Tech/Science Dark Theme
 ======================= */
 :root {
   /* Backgrounds */
-  --bg-primary: #222222;
-  --bg-secondary: #1E1E1E;
-  --bg-tertiary: #2C2C2C;
+  --bg-primary: #121212;       /* dark, near black */
+  --bg-secondary: #1B1B1B;     /* slightly lighter */
+  --bg-tertiary: #1F1F1F;
 
   /* Text */
   --text-primary: #E0E0E0;
   --text-secondary: #A0A0A0;
-  --text-accent: #BB86FC;
+  --text-accent: #00FFCB;      /* neon cyan accent for tech feel */
 
   /* UI / Borders */
-  --border: #333333;
-  --input-bg: #1E1E1E;
+  --border: #2A2A2A;
+  --input-bg: #1B1B1B;
   --input-text: #E0E0E0;
-  --button-bg: #2C2C2C;
-  --button-hover: #3C3C3C;
+  --button-bg: #1F1F1F;
+  --button-hover: #292929;
 
   /* Plotting */
-  --plot-line: #03DAC6;
-  --plot-circle: #FF0266;
-  --plot-grid: #b51010;
-  --plot-axis: #AAAAAA;
+  --plot-line: #00FFCB;        /* bright cyan */
+  --plot-circle: #FF6EC7;      /* hot pink for points */
+  --plot-grid: #444444;        /* muted grid lines */
+  --plot-axis: #AAAAAA;        /* readable axis labels */
 }
 
 /* =======================
@@ -47,6 +47,12 @@ input, select, textarea {
   border: 1px solid var(--border);
   padding: 5px 8px;
   border-radius: 4px;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--text-accent);
+  box-shadow: 0 0 5px var(--text-accent);
 }
 
 button {
@@ -56,10 +62,13 @@ button {
   padding: 6px 12px;
   border-radius: 4px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 button:hover {
   background-color: var(--button-hover);
+  border-color: var(--text-accent);
+  box-shadow: 0 0 5px var(--text-accent);
 }
 
 /* =======================
@@ -73,6 +82,8 @@ button:hover {
 
 .plot-circle {
   fill: var(--plot-circle);
+  stroke: #000000;
+  stroke-width: 1px;
 }
 
 .plot-grid {
@@ -89,4 +100,32 @@ button:hover {
 .plot-axis text {
   fill: var(--plot-axis);
   font-size: 12px;
+}
+
+/* =======================
+   Workbench Styling
+======================= */
+.workbench-container {
+  padding: 2rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: system-ui, sans-serif;
+}
+
+.widget-demo {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(0, 255, 203, 0.05); /* subtle cyan tint */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Buttons in workbench can have accent variants */
+.dark-button.accent {
+  background-color: var(--text-accent);
+  color: #121212;
+}
+
+.dark-button.accent:hover {
+  background-color: #00e6b0;
 }

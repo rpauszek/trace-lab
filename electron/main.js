@@ -8,6 +8,7 @@ let backendPort = 5000;
 
 // Detect dev mode
 const isDev = process.env.NODE_ENV === "development";
+const isWorkbench = process.argv.includes("--workbench");
 
 function startBackend() {
   console.log("Starting backend...");
@@ -51,7 +52,9 @@ function createWindow() {
   });
 
   if (isDev) {
-    win.loadURL("http://localhost:5173");
+    win.loadURL(
+      isWorkbench ? "http://localhost:5173/workbench.html" : "http://localhost:5173"
+    )
   } else {
     win.loadFile(path.join(process.resourcesPath, "renderer", "index.html"));
   }
