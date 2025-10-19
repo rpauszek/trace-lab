@@ -1,24 +1,41 @@
 {
-    "name": "electron",
-    "version": "1.0.0",
-    "description": "",
-    "main": "main.js",
-    "scripts": {
-        "start": "electron .",
-        "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "trace-lab",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "./scripts/dev.sh",
+    "start": "electron .",
+    "build": "electron-builder",
+    "workbench": "./scripts/dev.sh --workbench"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^30.0.0",
+    "electron-builder": "^26.0.12",
+    "wait-on": "^9.0.1"
+  },
+  "build": {
+  "appId": "com.raypauszek.tracelab",
+  "mac": {
+    "category": "public.app-category.science",
+    "target": ["dmg"]
+  },
+  "files": [
+    "main.js",
+    "preload.js",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "../backend/dist",
+      "to": "backend",
+      "filter": ["**/*"]
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "type": "commonjs",
-    "dependencies": {
-        "d3": "^7.9.0",
-        "electron": "^38.2.2",
-        "react": "^19.2.0",
-        "react-dom": "^19.2.0"
-    },
-    "devDependencies": {
-        "@vitejs/plugin-react": "^5.0.4",
-        "vite": "^7.1.9"
+    {
+      "from": "../renderer/dist",
+      "to": "renderer",
+      "filter": ["**/*"]
     }
+  ]
+}
 }

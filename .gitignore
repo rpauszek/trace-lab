@@ -1,2 +1,10 @@
 .vscode
 node_modules
+__pycache__
+.DS_Store
+
+backend/build
+backend/dist
+backend/*.spec
+electron/dist
+renderer/dist
