@@ -25,8 +25,14 @@ export default function SinePlot({ data }) {
             .range([height - margin, margin]);
 
         // Gridlines
-        const xAxisGrid = d3.axisBottom(xScale).tickSize(-height + 2 * margin).tickFormat("");
-        const yAxisGrid = d3.axisLeft(yScale).tickSize(-width + 2 * margin).tickFormat("");
+        const xAxisGrid = d3
+            .axisBottom(xScale)
+            .tickSize(-height + 2 * margin)
+            .tickFormat("");
+        const yAxisGrid = d3
+            .axisLeft(yScale)
+            .tickSize(-width + 2 * margin)
+            .tickFormat("");
 
         svg.append("g")
             .attr("class", "plot-grid")
@@ -71,7 +77,6 @@ export default function SinePlot({ data }) {
         //     .attr("cx", (d, i) => xScale(data.x[i]))
         //     .attr("cy", (d) => yScale(d))
         //     .attr("r", 5);
-
     }, [data]);
 
     return <svg ref={ref} width={600} height={400}></svg>;

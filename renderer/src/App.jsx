@@ -8,7 +8,10 @@ export default function App() {
 
     useEffect(() => {
         const points = 100;
-        const x = Array.from({ length: points }, (_, i) => (i / points) * 2 * Math.PI);
+        const x = Array.from(
+            { length: points },
+            (_, i) => (i / points) * 2 * Math.PI
+        );
         const y = x.map((xi) => Math.sin(xi * freq));
         setData({ x, y });
     }, [freq]);
